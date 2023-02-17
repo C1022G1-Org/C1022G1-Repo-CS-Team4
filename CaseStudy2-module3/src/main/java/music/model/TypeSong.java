@@ -1,30 +1,31 @@
 package music.model;
 
 public class TypeSong {
-    private int typeSongId;
-    private String typeSong;
+    private int typeId;
+    private String typeName;
 
-    public TypeSong() {
+    public TypeSong(int typeId, String typeName) {
+        this.typeId = typeId;
+        this.typeName = typeName;
     }
 
-    public TypeSong(int typeSongId, String typeSong) {
-        this.typeSongId = typeSongId;
-        this.typeSong = typeSong;
+    public TypeSong(String typeName) {
+        this.typeName = typeName;
     }
 
-    public int getTypeSongId() {
-        return typeSongId;
+    public int getTypeId() {
+        return typeId;
     }
 
-    public void setTypeSongId(int typeSongId) {
-        this.typeSongId = typeSongId;
+    public void setTypeId(int typeId) {
+        this.typeId = typeId;
     }
 
-    public String getTypeSong() {
-        return typeSong;
+    public String getTypeName() {
+        return typeName;
     }
 
-    public void setTypeSong(String typeSong) {
-        this.typeSong = typeSong;
+    public void setTypeName(String typeName) {
+        this.typeName = typeName;
     }
 }

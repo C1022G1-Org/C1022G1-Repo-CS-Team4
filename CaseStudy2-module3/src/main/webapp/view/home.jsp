@@ -31,7 +31,7 @@
                     <a class="nav-link active text-white" aria-current="page" href="">Home</a>
                 </li>
                 <li class="nav-item mx-3">
-                    <a class="nav-link text-white" href="/view/playlist.jsp">Playlist</a>
+                    <a class="nav-link text-white" href="/playlist">Playlist</a>
                 </li>
                 <li class="nav-item mx-3">
                     <a class="nav-link text-white" href="#">Podcast</a>
