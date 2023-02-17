@@ -40,6 +40,7 @@
     <link rel="stylesheet" href="\css\bootstrap.css">
     <link rel="stylesheet" href="\themify-icons\themify-icons.css">
     <link rel="stylesheet" href="\case_study2.css">
+    <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
@@ -97,11 +98,12 @@
 </nav>
 <div class="row">
     <div class="row ms-0 me-0" style="margin-top: 56px">
-        <div class="col-4" style="background-color: black"><img src="picture\ảnh playlist.png "style="width: 100% ;height: 50%;margin-top: 60px"><br>
+        <div class="col-4" style="background-color: black;height: 100%"><img src="picture\ảnh playlist.png "style="width: 100% ;height: 50%;margin-top: 60px"><br>
             <a style="margin-top: 10px" class="play-btn" href="#"></a>
         </div>
 
-        <div class="col-8 ">
+        <div class="col-8  bg">
+            <a class="text-primary" href="/playlist?action=create">Add new user</a>
             <table class="table table-primary table-striped">
                 <tr>
                     <td>Stt</td>
@@ -124,9 +126,8 @@
 
 </div>
 </div>
-<script src="\js\bootstrap.js"></script>
+<script src="webapp\js\bootstrap.js"></script>
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
-

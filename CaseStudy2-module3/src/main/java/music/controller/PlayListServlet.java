@@ -3,6 +3,7 @@ package music.controller;
 import service.IPlayListService;
 import service.impl.PlayListService;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,7 +15,15 @@ import java.io.IOException;
 public class PlayListServlet extends HttpServlet {
     IPlayListService iPlayListService = new PlayListService();
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        String action = request.getParameter("action");
+        if (action == null){
+            action = "";
+        }
+        switch (action){
+            case "create":
+                create(request,response);
+                break;
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -23,6 +32,9 @@ public class PlayListServlet extends HttpServlet {
             action = "";
         }
         switch (action){
+            case "create":
+                showCreate(request,response);
+                break;
             default:
                 showList(request, response);
         }
@@ -37,5 +49,19 @@ public class PlayListServlet extends HttpServlet {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private void create(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String nameSong = request.getParameter("nameSong");
+        int singerId = Integer.parseInt(request.getParameter("singerId"));
+        int typeId = Integer.parseInt(request.getParameter("typeId"));
+        iPlayListService.insertPlaylist(nameSong, singerId, typeId);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("view/create.jsp");
+        dispatcher.forward(request,response);
+    }
+
+    private void showCreate(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/view/create.jsp");
+        dispatcher.forward(request,response);
     }
 }
