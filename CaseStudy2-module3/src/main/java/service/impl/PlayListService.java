@@ -13,4 +13,9 @@ public class PlayListService implements IPlayListService {
     public List<PlayList> findAllPlayList() {
         return iPlayListRepository.findAllPlayList();
     }
+
+    @Override
+    public void insertPlaylist(String nameSong, int singerId, int typeId) {
+        iPlayListRepository.insertPlaylist(nameSong, singerId, typeId);
+    }
 }

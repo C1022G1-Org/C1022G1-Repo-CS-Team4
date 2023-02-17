@@ -16,6 +16,8 @@ import java.util.List;
 public class PlayListRepository implements IPlayListRepository {
 
     public static final String FINDALL = "select pll.playlist_id,pll.name_song, ts.name_type, s.name_singer from playlist pll join type_song ts on pll.type_id = ts.type_id join singer s on pll.singer_id = s.singer_id";
+    public static final String INSERT_PLAYLIST = "insert into playlist(name_song, singer_id, type_id) values (?, ?, ?);";
+
     @Override
     public List<PlayList> findAllPlayList() {
         List<PlayList> playLists = new ArrayList<>();
@@ -38,5 +40,19 @@ public class PlayListRepository implements IPlayListRepository {
             e.printStackTrace();
         }
         return playLists;
+    }
+
+    @Override
+    public void insertPlaylist(String nameSong, int singerId, int typeId) {
+        Connection connection = BaseRepository.getConnection();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(INSERT_PLAYLIST);
+            preparedStatement.setString(1, nameSong);
+            preparedStatement.setInt(2,singerId);
+            preparedStatement.setInt(3,typeId);
+            preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
 }
