@@ -40,7 +40,7 @@
                 <td>
                     <select name="singer">
                         <c:forEach items="${playlist}" var="playlist">
-                            <option value="${playlist.getPlayListId()}">${playlist.getSinger().getSingerName()}</option>
+                            <option value="${playlist.getSinger().getSingerId()}">${playlist.getSinger().getSingerName()}</option>
                         </c:forEach>
                     </select>
                 </td>
@@ -50,7 +50,7 @@
                 <td>
                     <select name="type">
                         <c:forEach items="${playlist}" var="playlist">
-                            <option value="${playlist.getPlayListId()}">${playlist.getTypeSong().getTypeName()}</option>
+                            <option value="${playlist.getTypeSong().getTypeId()}">${playlist.getTypeSong().getTypeName()}</option>
                         </c:forEach>
                     </select>
                 </td>

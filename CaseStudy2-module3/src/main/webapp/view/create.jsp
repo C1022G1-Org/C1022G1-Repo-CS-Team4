@@ -46,7 +46,7 @@
 <body>
 <nav class="navbar navbar-expand-lg bg-dark fixed-top">
     <div class="container-fluid">
-        <a class="navbar-brand ms-4" href="#">
+        <a class="navbar-brand ms-4" href="/view/home.jsp">
             <img src="\picture\tải_xuống-removebg-preview.png" width="23px" height="23px" alt="">
         </a>
         <a class="navbar-brand me-4 text-white" href="#">Group 4</a>
@@ -57,7 +57,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item mx-3">
-                    <a class="nav-link active text-white" aria-current="page" href="home.jsp">Home</a>
+                    <a class="nav-link active text-white" aria-current="page" href="/view/home.jsp\">Home</a>
                 </li>
                 <li class="nav-item mx-3">
                     <a class="nav-link text-white" href="/playlist">Playlist</a>
@@ -66,7 +66,7 @@
                     <a class="nav-link text-white" href="#">Podcast</a>
                 </li>
                 <li class="nav-item mx-3">
-                    <a class="nav-link text-white" href="#">Artist</a>
+                    <a class="nav-link text-white" href="/view/artist.jsp">Artist</a>
                 </li>
                 <li class="nav-item mx-3">
                     <a class="nav-link text-white" href="#">Album</a>
@@ -78,7 +78,7 @@
                        aria-label="Search"><i class="ti-search"></i>
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item me-4">
-                        <a class="nav-link active text-secondary help" aria-current="page" href="#">Help</a>
+                        <a class="nav-link active text-secondary help" aria-current="page" href="#">Contact</a>
                     </li>
                     <li class="nav-item me-3">
                         <div class="column-menu"></div>
@@ -98,13 +98,14 @@
 </nav>
 <div class="row">
     <div class="row ms-0 me-0" style="margin-top: 56px">
-        <div class="col-4" style="background-color: black"><img src="picture\ảnh playlist.png "style="width: 100% ;height: 50%;margin-top: 60px"><br>
-            <a style="margin-top: 10px" class="play-btn" href="#"></a>
+        <div class="col-4 py-3" style="background-color: black;height: 100%"><img
+                src="https://i.pinimg.com/564x/5e/60/b7/5e60b70cef4cec25b10f6fee314ec92a.jpg"
+                style="width: 100% ;height: 100%;"><br>
         </div>
 
         <div class="col-8 ">
             <form method="post">
-                <table class="table table-primary table-striped">
+                <table class="table table-dark table-striped">
                     <tr>
                         <td>Name Song</td>
                         <td>Name Singer</td>
@@ -119,12 +120,23 @@
                             <label>Name of the singer</label>
                             <input type="number" name="singerId">
                         </td>
+<%--                        <td>--%>
+<%--                            <select name="singerId">--%>
+<%--                                <c:forEach items="${playlist}" var="playlist">--%>
+<%--                                    <option value="${playlist.getSinger().getSingerId()}">${playlist.getSinger().getSingerName()}</option>--%>
+<%--                                </c:forEach>--%>
+<%--                            </select>--%>
+<%--                        </td>--%>
                         <td>
                             <label>Type of the song</label>
                             <input type="number" name="typeId">
                         </td>
                     </tr>
-                    <input name="" id="" class="btn btn-primary" type="submit" value="">
+                    <section style="width: 5rem;height: 40px;border-radius: 150px;" class="bg-dark mt-3 mb-2 me-3 float-end d-flex align-items-center justify-content-center">
+                        <div class="circle long">
+                            <input style="border: none" class="bg-dark text-white" type="submit" value="Add">
+                        </div>
+                    </section>
                 </table>
             </form>
             </table>
