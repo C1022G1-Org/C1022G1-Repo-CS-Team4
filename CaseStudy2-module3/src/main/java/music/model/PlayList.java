@@ -13,6 +13,12 @@ public class PlayList {
         this.typeSong = typeSong;
     }
 
+    public PlayList(String nameSong, Singer singer, TypeSong typeSong) {
+        this.nameSong = nameSong;
+        this.singer = singer;
+        this.typeSong = typeSong;
+    }
+
     public int getPlayListId() {
         return playListId;
     }

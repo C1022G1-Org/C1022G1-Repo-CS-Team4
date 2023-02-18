@@ -8,4 +8,10 @@ public interface IPlayListService {
     List<PlayList> findAllPlayList();
 
     void insertPlaylist(String nameSong, int singerId, int typeId);
+
+    boolean deletePlayList(int id);
+
+    boolean update(PlayList playList);
+
+//    PlayList findPlaylistById(int id);
 }

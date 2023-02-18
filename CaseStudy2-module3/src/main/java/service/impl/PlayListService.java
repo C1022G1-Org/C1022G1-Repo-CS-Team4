@@ -18,4 +18,20 @@ public class PlayListService implements IPlayListService {
     public void insertPlaylist(String nameSong, int singerId, int typeId) {
         iPlayListRepository.insertPlaylist(nameSong, singerId, typeId);
     }
+
+    @Override
+    public boolean deletePlayList(int id) {
+        return iPlayListRepository.deletePlayList(id);
+    }
+
+    @Override
+    public boolean update(PlayList playList) {
+        return iPlayListRepository.update(playList);
+    }
+
+//    @Override
+//    public PlayList findPlaylistById(int id) {
+////        return iPlayListRepository.findPlaylistById(id);
+//    }
+
 }
