@@ -13,6 +13,10 @@ public class TypeSong {
         this.typeName = typeName;
     }
 
+    public TypeSong(int typeId) {
+        this.typeId = typeId;
+    }
+
     public int getTypeId() {
         return typeId;
     }

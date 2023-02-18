@@ -13,6 +13,10 @@ public class Singer {
         this.singerName = singerName;
     }
 
+    public Singer(int singerId) {
+        this.singerId = singerId;
+    }
+
     public int getSingerId() {
         return singerId;
     }
