@@ -135,7 +135,7 @@
 <%--header--%>
 <nav class="navbar navbar-expand-lg bg-dark fixed-top">
     <div class="container-fluid">
-        <a class="navbar-brand ms-4" href="#">
+        <a class="navbar-brand ms-4" href="/view/home.jsp">
             <img src="/picture/tải_xuống-removebg-preview.png" width="23px" height="23px" alt="">
         </a>
         <a class="navbar-brand me-4 text-white" href="/view/home.jsp">Group 4</a>
@@ -149,13 +149,13 @@
                     <a class="nav-link active text-white" aria-current="page" href="/view/home.jsp">Home</a>
                 </li>
                 <li class="nav-item mx-3">
-                    <a class="nav-link text-white" href="#">Playlist</a>
+                    <a class="nav-link text-white" href="/playlist">Playlist</a>
                 </li>
                 <li class="nav-item mx-3">
                     <a class="nav-link text-white" href="#">Podcast</a>
                 </li>
                 <li class="nav-item mx-3">
-                    <a class="nav-link text-white" href="#">Artist</a>
+                    <a class="nav-link text-white" href="/view/artist.jsp">Artist</a>
                 </li>
                 <li class="nav-item mx-3">
                     <a class="nav-link text-white" href="#">Album</a>

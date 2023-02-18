@@ -12,20 +12,24 @@ import java.util.List;
 
 public class PlayListRepository implements IPlayListRepository {
 
-    public static final String FINDALL = "select pll.playlist_id,pll.name_song, ts.name_type, s.name_singer from playlist pll join type_song ts on pll.type_id = ts.type_id join singer s on pll.singer_id = s.singer_id";
+    public static final String FINDALL = "select pll.playlist_id,pll.name_song, ts.name_type, s.name_singer from playlist pll join type_song ts on pll.type_id = ts.type_id join singer s on pll.singer_id = s.singer_id where pll.name_song like concat('%',?,'%')";
     public static final String INSERT_PLAYLIST = "insert into playlist(name_song, singer_id, type_id) values (?, ?, ?);";
-    public static final String DELETE_PLAYLIST = "delete from playlist where playlist_id=?";
+    public static final String DELETE_PLAYLIST = "delete from playlist where playlist_id=?;";
     private static final String UPDATE_USERS_SQL = "update playlist set name_song=? , singer_id=?, type_id=? where playlist_id=? ;";
     public static final String SET_UPDATE = "SET SQL_SAFE_UPDATES = 0;";
     private static final String FIND_BY_ID = "select pll.playlist_id,pll.name_song, ts.name_type, s.name_singer from playlist pll join type_song ts on pll.type_id = ts.type_id join singer s on pll.singer_id = s.singer_id where playlist_id=?";
 
 
     @Override
-    public List<PlayList> findAllPlayList() {
+    public List<PlayList> findAllPlayList(String search) {
         List<PlayList> playLists = new ArrayList<>();
+        if (search == null) {
+            search = "";
+        }
         Connection connection = BaseRepository.getConnection();
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(FINDALL);
+            preparedStatement.setString(1, search);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 int playListId = resultSet.getInt("playlist_id");
@@ -73,13 +77,12 @@ public class PlayListRepository implements IPlayListRepository {
     }
 
     @Override
-    public boolean update(PlayList playList) {
-        Connection connection = BaseRepository.getConnection();
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement(SET_UPDATE);
-            preparedStatement.executeUpdate();
-            PreparedStatement preparedStatement1 = connection.prepareStatement(UPDATE_USERS_SQL);
-            preparedStatement1.executeUpdate();
+    public boolean update(PlayList playList){
+        try (Connection connection = BaseRepository.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SET_UPDATE);
+             PreparedStatement preparedStatement1 = connection.prepareStatement(UPDATE_USERS_SQL);
+        ) {
+
             preparedStatement1.setString(1, playList.getNameSong());
             preparedStatement1.setInt(2, playList.getSinger().getSingerId());
             preparedStatement1.setInt(3, playList.getTypeSong().getTypeId());

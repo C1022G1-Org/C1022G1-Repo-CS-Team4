@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet(name = "PlayListServlet", urlPatterns = "/playlist")
 public class PlayListServlet extends HttpServlet {
@@ -31,6 +32,7 @@ public class PlayListServlet extends HttpServlet {
                 break;
             case "delete":
                 deletePlaylist(request, response);
+                break;
             case "edit":
                 updatePlaylist(request, response);
                 break;
@@ -62,7 +64,7 @@ public class PlayListServlet extends HttpServlet {
         }
     }
 
-    private void deletePlaylist(HttpServletRequest request, HttpServletResponse response) {
+    private void deletePlaylist(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         String mess = "Xóa Không thành công";
         boolean check = iPlayListService.deletePlayList(id);
@@ -70,7 +72,10 @@ public class PlayListServlet extends HttpServlet {
             mess = "Xóa Thành công";
         }
         request.setAttribute("mess", mess);
-        showList(request, response);
+        List<PlayList> playLists = iPlayListService.findAllPlayList(null);
+        request.setAttribute("playList",playLists);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/view/playlist.jsp");
+        dispatcher.forward(request,response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -86,13 +91,15 @@ public class PlayListServlet extends HttpServlet {
                 break;
             case "edit":
                 showEdit(request, response);
+                break;
             default:
                 showList(request, response);
+                break;
         }
     }
 
     private void showEdit(HttpServletRequest request, HttpServletResponse response) {
-        request.setAttribute("playlist", iPlayListService.findAllPlayList());
+        request.setAttribute("playlist", iPlayListService.findAllPlayList(null));
         try {
             request.getRequestDispatcher("/view/edit.jsp").forward(request, response);
         } catch (ServletException e) {
@@ -103,7 +110,8 @@ public class PlayListServlet extends HttpServlet {
     }
 
     private void showList(HttpServletRequest request, HttpServletResponse response) {
-        request.setAttribute("playList", iPlayListService.findAllPlayList());
+        String songName= request.getParameter("search");
+        request.setAttribute("playList", iPlayListService.findAllPlayList(songName));
         try {
             request.getRequestDispatcher("/view/playlist.jsp").forward(request, response);
         } catch (ServletException e) {
@@ -123,6 +131,7 @@ public class PlayListServlet extends HttpServlet {
     }
 
     private void showCreate(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setAttribute("playlist", iPlayListService.findAllPlayList(null));
         RequestDispatcher dispatcher = request.getRequestDispatcher("/view/create.jsp");
         dispatcher.forward(request, response);
     }

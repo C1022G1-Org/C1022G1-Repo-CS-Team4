@@ -4,55 +4,24 @@
 <html>
 <head>
     <title>PlayList</title>
-    <style>
-        .play-btn {
-            width: 50px;
-            height: 50px;
-            background: radial-gradient( rgba(255, 0, 128, 0.8) 60%, rgba(255, 255, 255, 1) 62%);
-            border-radius: 50%;
-            position: relative;
-            display: block;
-            margin: auto;
-            box-shadow: 0px 0px 25px 3px rgba(255, 0, 128, 0.8);
-        }
-
-        /* triangle */
-        .play-btn::after {
-            content: "";
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            -webkit-transform: translateX(-40%) translateY(-50%);
-            transform: translateX(-40%) translateY(-50%);
-            transform-origin: center center;
-            width: 0;
-            height: 0;
-            border-top: 15px solid transparent;
-            border-bottom: 15px solid transparent;
-            border-left: 25px solid #fff;
-            z-index: 100;
-            -webkit-transition: all 400ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
-            transition: all 400ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
-        }
-    </style>
     <link rel="stylesheet" href="../../bootstrap-5.1.3-dist/css/bootstrap.css">
     <link rel="stylesheet" href="../../bootstrap-5.1.3-dist/css/styleWeb.css">
     <link rel="stylesheet" href="\css\bootstrap.css">
     <link rel="stylesheet" href="\themify-icons\themify-icons.css">
     <link rel="stylesheet" href="\case_study2.css">
-    <link rel="stylesheet" href="/style.css">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
             crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
 <nav class="navbar navbar-expand-lg bg-dark fixed-top">
     <div class="container-fluid">
-        <a class="navbar-brand ms-4" href="#">
+        <a class="navbar-brand ms-4" href="/view/home.jsp">
             <img src="\picture\tải_xuống-removebg-preview.png" width="23px" height="23px" alt="">
         </a>
         <a class="navbar-brand me-4 text-white" href="#">Group 4</a>
@@ -66,13 +35,13 @@
                     <a class="nav-link active text-white" aria-current="page" href="/view/home.jsp">Home</a>
                 </li>
                 <li class="nav-item mx-3">
-                    <a class="nav-link text-white" href="playlist.jsp">Playlist</a>
+                    <a class="nav-link text-white" href="/playlist">Playlist</a>
                 </li>
                 <li class="nav-item mx-3">
                     <a class="nav-link text-white" href="#">Podcast</a>
                 </li>
                 <li class="nav-item mx-3">
-                    <a class="nav-link text-white" href="#">Artist</a>
+                    <a class="nav-link text-white" href="/view/artist.jsp">Artist</a>
                 </li>
                 <li class="nav-item mx-3">
                     <a class="nav-link text-white" href="#">Album</a>
@@ -81,10 +50,10 @@
             <form class="d-flex" role="search">
                 <input class="form-control me-5 rounded-pill" style="padding-left: 40px" type="search"
                        placeholder="Search Music"
-                       aria-label="Search"><i class="ti-search"></i>
+                       aria-label="Search" name="search"><i class="ti-search"></i>
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item me-4">
-                        <a class="nav-link active text-secondary help" aria-current="page" href="#">Help</a>
+                        <a class="nav-link active text-secondary help" aria-current="page" href="#">Contact</a>
                     </li>
                     <li class="nav-item me-3">
                         <div class="column-menu"></div>
@@ -102,15 +71,21 @@
         </div>
     </div>
 </nav>
-<div class="row">
+<div class="row" style="height: 100%">
     <div class="row ms-0 me-0" style="margin-top: 56px">
-        <div class="col-4" style="background-color: black;height: 100%"><img src="picture\ảnh playlist.png "style="width: 100% ;height: 50%;margin-top: 60px"><br>
-            <a style="margin-top: 10px" class="play-btn" href="#"></a>
+        <div class="col-4 py-3" style="background-color: black;height: 100%"><img
+                src="https://i.pinimg.com/564x/5e/60/b7/5e60b70cef4cec25b10f6fee314ec92a.jpg"
+                style="width: 100% ;height: 100%;"><br>
         </div>
 
-        <div class="col-8  bg">
-            <a class="text-primary" href="/playlist?action=create">Add new user</a>
-            <table class="table table-primary table-striped">
+        <div class="col-8" style="background-color: white">
+            <section style="width: 8rem;height: 40px;border-radius: 150px;"
+                     class="bg-dark mt-3 mb-2 me-3 float-end d-flex align-items-center justify-content-center">
+                <div class="circle long">
+                    <a class="text-white link-create" href="/playlist?action=create">Add new user</a>
+                </div>
+            </section>
+            <table class="table table-dark table-striped">
                 <tr>
                     <td>Stt</td>
                     <td>Name Song</td>
@@ -126,14 +101,16 @@
                         <td>${playList.singer.singerName}</td>
                         <td>${playList.typeSong.typeName}</td>
                         <td>
-                            <button onclick="infoDelete('${playList.getPlayListId()}','${playList.getNameSong()}')" type="button"
+                            <button style="background-color: #6c757d; border: none"
+                                    onclick="infoDelete('${playList.getPlayListId()}','${playList.getNameSong()}')"
+                                    type="button"
                                     class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                 Delete
                             </button>
                         </td>
                         <td>
-                            <button>
-                                <a style="color: cadetblue" href="/playlist?action=edit&id=${playList.playListId}">Edit</a>
+                            <button class="btn btn-danger" style="background-color: #6c757d; border: none">
+                                <a style="color: white" href="/playlist?action=edit&id=${playList.playListId}">Edit</a>
                             </button>
                         </td>
                     </tr>
