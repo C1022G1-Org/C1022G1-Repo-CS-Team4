@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: ACER
@@ -9,7 +10,7 @@
 <html>
 <head>
     <title>Artist</title>
-    <link rel="stylesheet" href="\css\bootstrap.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="\themify-icons\themify-icons.css">
     <link rel="stylesheet" href="\style.css">
     <style>
@@ -135,7 +136,7 @@
 <%--header--%>
 <nav class="navbar navbar-expand-lg bg-dark fixed-top">
     <div class="container-fluid">
-        <a class="navbar-brand ms-4" href="/view/home.jsp">
+        <a class="navbar-brand ms-4" href="#">
             <img src="/picture/tải_xuống-removebg-preview.png" width="23px" height="23px" alt="">
         </a>
         <a class="navbar-brand me-4 text-white" href="/view/home.jsp">Group 4</a>
@@ -149,13 +150,13 @@
                     <a class="nav-link active text-white" aria-current="page" href="/view/home.jsp">Home</a>
                 </li>
                 <li class="nav-item mx-3">
-                    <a class="nav-link text-white" href="/playlist">Playlist</a>
+                    <a class="nav-link text-white" href="#">Playlist</a>
                 </li>
                 <li class="nav-item mx-3">
                     <a class="nav-link text-white" href="#">Podcast</a>
                 </li>
                 <li class="nav-item mx-3">
-                    <a class="nav-link text-white" href="/view/artist.jsp">Artist</a>
+                    <a class="nav-link text-white" href="#">Artist</a>
                 </li>
                 <li class="nav-item mx-3">
                     <a class="nav-link text-white" href="#">Album</a>
@@ -172,10 +173,22 @@
                     <li class="nav-item me-3">
                         <div class="column-menu"></div>
                     </li>
-                    <li class="nav-item mx-2">
-                        <i class="ti-user"></i><a class="nav-link active login text-secondary text-nav"
-                                                  aria-current="page" href="/view/login.jsp">Login</a>
-                    </li>
+                    <c:if test="${sessionScope.nameAccount != null}">
+                        <li>
+                            <a style="position: relative; right: 35px; top: 8px" href="#">${sessionScope.nameAccount.name}</a>
+                        </li>
+                        <li class="nav-item mx-2"><a href="/user?action=logout"
+                                                     class="nav-link active login text-secondary text-nav"
+                                                     aria-current="page"> <i style="position: absolute; right: 190px; width: 30px; padding-top: 5px; color: white" class="ti-shift-right"></i> Logout</a>
+                        </li>
+                    </c:if>
+                    <c:if test="${sessionScope.nameAccount == null}">
+                        <li class="nav-item mx-2">
+                            <i class="ti-user"></i><a href="/view/login.jsp"
+                                                      class="nav-link active login text-secondary text-nav"
+                                                      aria-current="page">Login</a>
+                        </li>
+                    </c:if>
                     <li class="nav-item me-5">
                         <a class="nav-link active register rounded-pill text-black bg-white" aria-current="page"
                            href="/view/register.jsp">Register</a>
@@ -477,11 +490,5 @@
         </div>
     </div> <!-- end of container -->
 </div> <!-- end of bottom -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
-</html>
-</title>
-</head>
-<body>
-
-</body>
-</html>

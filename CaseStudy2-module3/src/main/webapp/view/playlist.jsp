@@ -4,17 +4,8 @@
 <html>
 <head>
     <title>PlayList</title>
-    <link rel="stylesheet" href="../../bootstrap-5.1.3-dist/css/bootstrap.css">
-    <link rel="stylesheet" href="../../bootstrap-5.1.3-dist/css/styleWeb.css">
-    <link rel="stylesheet" href="\css\bootstrap.css">
     <link rel="stylesheet" href="\themify-icons\themify-icons.css">
-    <link rel="stylesheet" href="\case_study2.css">
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-            crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="/style.css">
 </head>
 
@@ -109,9 +100,7 @@
                             </button>
                         </td>
                         <td>
-                            <button class="btn btn-danger" style="background-color: #6c757d; border: none">
-                                <a style="color: white" href="/playlist?action=edit&id=${playList.playListId}">Edit</a>
-                            </button>
+                            <a class="btn btn-danger" style="background-color: #6c757d; border: none" style="color: white" href="/playlist?action=edit&id=${playList.playListId}">Edit</a>
                         </td>
                     </tr>
                 </c:forEach>
@@ -150,7 +139,7 @@
         document.getElementById("deleteName").innerText = NameSong;
     }
 </script>
-<script src="webapp\js\bootstrap.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
