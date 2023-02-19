@@ -19,6 +19,9 @@ public class PlayList {
         this.typeSong = typeSong;
     }
 
+    public PlayList() {
+    }
+
     public int getPlayListId() {
         return playListId;
     }

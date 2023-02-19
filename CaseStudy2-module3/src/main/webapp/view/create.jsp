@@ -35,11 +35,8 @@
             transition: all 400ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
         }
     </style>
-    <link rel="stylesheet" href="../../bootstrap-5.1.3-dist/css/bootstrap.css">
-    <link rel="stylesheet" href="../../bootstrap-5.1.3-dist/css/styleWeb.css">
-    <link rel="stylesheet" href="\css\bootstrap.css">
     <link rel="stylesheet" href="\themify-icons\themify-icons.css">
-    <link rel="stylesheet" href="\case_study2.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="/style.css">
 </head>
 
@@ -146,7 +143,7 @@
 
 </div>
 </div>
-<script src="\js\bootstrap.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>

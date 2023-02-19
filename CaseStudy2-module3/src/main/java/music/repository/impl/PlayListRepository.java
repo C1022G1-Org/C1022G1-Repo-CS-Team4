@@ -15,9 +15,9 @@ public class PlayListRepository implements IPlayListRepository {
     public static final String FINDALL = "select pll.playlist_id,pll.name_song, ts.name_type, s.name_singer from playlist pll join type_song ts on pll.type_id = ts.type_id join singer s on pll.singer_id = s.singer_id where pll.name_song like concat('%',?,'%')";
     public static final String INSERT_PLAYLIST = "insert into playlist(name_song, singer_id, type_id) values (?, ?, ?);";
     public static final String DELETE_PLAYLIST = "delete from playlist where playlist_id=?;";
-    private static final String UPDATE_USERS_SQL = "update playlist set name_song=? , singer_id=?, type_id=? where playlist_id=? ;";
+    private static final String UPDATE_USERS_SQL = "update playlist set name_song=? , singer_id=?, type_id=? where playlist_id=?";
     public static final String SET_UPDATE = "SET SQL_SAFE_UPDATES = 0;";
-    private static final String FIND_BY_ID = "select pll.playlist_id,pll.name_song, ts.name_type, s.name_singer from playlist pll join type_song ts on pll.type_id = ts.type_id join singer s on pll.singer_id = s.singer_id where playlist_id=?";
+    private static final String FIND_BY_ID = "select pll.playlist_id,pll.name_song, s.name_singer, ts.name_type from playlist pll join type_song ts on pll.type_id = ts.type_id join singer s on pll.singer_id = s.singer_id where playlist_id=?";
 
 
     @Override
@@ -82,7 +82,6 @@ public class PlayListRepository implements IPlayListRepository {
              PreparedStatement preparedStatement = connection.prepareStatement(SET_UPDATE);
              PreparedStatement preparedStatement1 = connection.prepareStatement(UPDATE_USERS_SQL);
         ) {
-
             preparedStatement1.setString(1, playList.getNameSong());
             preparedStatement1.setInt(2, playList.getSinger().getSingerId());
             preparedStatement1.setInt(3, playList.getTypeSong().getTypeId());
@@ -94,25 +93,29 @@ public class PlayListRepository implements IPlayListRepository {
         return false;
     }
 
-//    @Override
-//    public PlayList findPlaylistById(int id) {
-//        Connection connection = BaseRepository.getConnection();
-//        PlayList playList = null;
-//        try {
-//            PreparedStatement preparedStatement = connection.prepareStatement(FIND_BY_ID);
-//            preparedStatement.setInt(1, id);
-//            ResultSet resultSet = preparedStatement.executeQuery();
-//            while (resultSet.next()) {
-//                String nameSong = resultSet.getString("name_song");
-//                String singerName = resultSet.getString("name_singer");
-//                String typeName = resultSet.getString("name_type");
-//                Singer singer = new Singer(singerName);
-//                TypeSong typeSong = new TypeSong(typeName);
-//                playList = new PlayList(id,nameSong,singer,typeSong);
-//            }
-//        } catch (SQLException throwables) {
-//            throwables.printStackTrace();
-//        }
-//        return playList;
-//    }
+    @Override
+    public PlayList findPlaylistById(int id) {
+        Connection connection = BaseRepository.getConnection();
+        PlayList playList;
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(FIND_BY_ID);
+            preparedStatement.setInt(1, id);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                playList = new PlayList();
+                playList.setPlayListId(resultSet.getInt("pll.playlist_id")) ;
+                playList.setNameSong( resultSet.getString("pll.name_song"));
+                String singerName = resultSet.getString("s.name_singer");
+                String typeName = resultSet.getString("ts.name_type");
+                Singer singer = new Singer(singerName);
+                playList.setSinger(singer);
+                TypeSong typeSong = new TypeSong(typeName);
+                playList.setTypeSong(typeSong);
+                return playList;
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return null;
+    }
 }

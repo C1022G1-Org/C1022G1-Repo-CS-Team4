@@ -13,5 +13,5 @@ public interface IPlayListRepository {
 
     boolean update(PlayList playList);
 
-//    PlayList findPlaylistById(int id);
+    PlayList findPlaylistById(int id);
 }
