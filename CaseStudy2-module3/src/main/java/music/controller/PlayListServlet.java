@@ -32,11 +32,20 @@ public class PlayListServlet extends HttpServlet {
             case "edit":
                 showEdit(request, response);
                 break;
+            case "singerList":
+                singerList(request,response);
+                break;
+            case "typeSongList":
+                typeSongList(request,response);
+                break;
             default:
                 showList(request, response);
                 break;
         }
     }
+
+
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
@@ -94,7 +103,8 @@ public class PlayListServlet extends HttpServlet {
             request.getRequestDispatcher("error-404.jsp");
         }else {
             request.setAttribute("playlist", playList);
-            request.setAttribute("playlist2", iPlayListService.findAllPlayList(""));
+            request.setAttribute("typeSongList",iPlayListService.showTypeSongList());
+            request.setAttribute("singerList",iPlayListService.showSingerList());
             try {
                 request.getRequestDispatcher("/view/edit.jsp").forward(request, response);
             } catch (ServletException e) {
@@ -136,13 +146,23 @@ public class PlayListServlet extends HttpServlet {
         int singerId = Integer.parseInt(request.getParameter("singerId"));
         int typeId = Integer.parseInt(request.getParameter("typeId"));
         iPlayListService.insertPlaylist(nameSong, singerId, typeId);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("view/create.jsp");
-        dispatcher.forward(request, response);
+        response.sendRedirect("/playlist");
     }
 
     private void showCreate(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setAttribute("playlist", iPlayListService.findAllPlayList(null));
+        request.setAttribute("typeSongList",iPlayListService.showTypeSongList());
+        request.setAttribute("singerList",iPlayListService.showSingerList());
         RequestDispatcher dispatcher = request.getRequestDispatcher("/view/create.jsp");
         dispatcher.forward(request, response);
     }
+    private void typeSongList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setAttribute("typeSongList",iPlayListService.showTypeSongList());
+        request.getRequestDispatcher("/view/playlist.jsp").forward(request,response);
+    }
+
+    private void singerList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setAttribute("singerList",iPlayListService.showSingerList());
+        request.getRequestDispatcher("/view/playlist.jsp").forward(request,response);
+    }
+
 }

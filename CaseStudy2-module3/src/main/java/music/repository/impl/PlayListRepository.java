@@ -118,4 +118,44 @@ public class PlayListRepository implements IPlayListRepository {
         }
         return null;
     }
+
+    @Override
+    public List<Singer> showSingerList() {
+        List<Singer> singerList = new ArrayList<>();
+        try {
+            PreparedStatement preparedStatement = BaseRepository.getConnection().prepareStatement("select * from singer");
+            ResultSet resultSet = preparedStatement.executeQuery();
+            Singer singer;
+            while (resultSet.next()){
+                singer = new Singer();
+                singer.setSingerId(resultSet.getInt("singer_id"));
+                singer.setSingerName(resultSet.getString("name_singer"));
+                singerList.add(singer);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return singerList;
+    }
+
+    @Override
+    public List<TypeSong> showTypeSongList() {
+        List<TypeSong> typeSongList = new ArrayList<>();
+        PreparedStatement preparedStatement = null;
+        try {
+            preparedStatement = BaseRepository.getConnection().prepareStatement("select * from type_song");
+            ResultSet resultSet = preparedStatement.executeQuery();
+            TypeSong typeSong;
+            while (resultSet.next()){
+                typeSong = new TypeSong();
+                typeSong.setTypeId(resultSet.getInt("type_id"));
+                typeSong.setTypeName(resultSet.getString("name_type"));
+                typeSongList.add(typeSong);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return typeSongList;
+    }
 }
