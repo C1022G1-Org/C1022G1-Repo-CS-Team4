@@ -9,6 +9,9 @@ public class TypeSong {
         this.typeName = typeName;
     }
 
+    public TypeSong() {
+    }
+
     public TypeSong(String typeName) {
         this.typeName = typeName;
     }

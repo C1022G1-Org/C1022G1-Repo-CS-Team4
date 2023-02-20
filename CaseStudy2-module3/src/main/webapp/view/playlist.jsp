@@ -74,8 +74,8 @@
         </div>
     </div>
 </nav>
-<div class="row" style="height: 100%">
-    <div class="row ms-0 me-0" style="margin-top: 56px">
+<div class="row m-0" style="height: 100%">
+    <div class="row ms-0 me-0 p-0" style="margin-top: 56px">
         <div class="col-4 py-3" style="background-color: black;height: 100%"><img
                 src="https://i.pinimg.com/564x/5e/60/b7/5e60b70cef4cec25b10f6fee314ec92a.jpg"
                 style="width: 100% ;height: 100%;"><br>
@@ -104,15 +104,15 @@
                         <td>${playList.singer.singerName}</td>
                         <td>${playList.typeSong.typeName}</td>
                         <td>
-                            <button style="background-color: #6c757d; border: none"
+                            <button
                                     onclick="infoDelete('${playList.getPlayListId()}','${playList.getNameSong()}')"
                                     type="button"
-                                    class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                 Delete
                             </button>
                         </td>
                         <td>
-                            <a class="btn btn-danger" style="background-color: #6c757d; border: none" style="color: white" href="/playlist?action=edit&id=${playList.playListId}">Edit</a>
+                            <a class="btn btn-primary btn-sm"  style="color: white" href="/playlist?action=edit&id=${playList.playListId}">Edit</a>
                         </td>
                     </tr>
                 </c:forEach>
@@ -130,8 +130,8 @@
                 <form action="/playlist?action=delete" method="post">
                     <div class="modal-body">
                         <label for="deleteId"></label><input type="text" hidden id="deleteId" name="id">
-                        Bạn có muốn xóa list nhạc <span id="deleteName" style="color: brown; font-weight: bold"></span>
-                        không ?
+                        Do you want to delete <span id="deleteName" style="color: brown; font-weight: bold"></span>
+                        ?
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>

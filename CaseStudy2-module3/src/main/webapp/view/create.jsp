@@ -54,7 +54,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item mx-3">
-                    <a class="nav-link active text-white" aria-current="page" href="/view/home.jsp\">Home</a>
+                    <a class="nav-link active text-white" aria-current="page" href="/view/home.jsp">Home</a>
                 </li>
                 <li class="nav-item mx-3">
                     <a class="nav-link text-white" href="/playlist">Playlist</a>
@@ -105,8 +105,8 @@
         </div>
     </div>
 </nav>
-<div class="row">
-    <div class="row ms-0 me-0" style="margin-top: 56px">
+<div class="row m-0">
+    <div class="row ms-0 me-0 p-0" style="margin-top: 56px">
         <div class="col-4 py-3" style="background-color: black;height: 100%"><img
                 src="https://i.pinimg.com/564x/5e/60/b7/5e60b70cef4cec25b10f6fee314ec92a.jpg"
                 style="width: 100% ;height: 100%;"><br>
@@ -116,20 +116,18 @@
             <form method="post">
                 <table class="table table-dark table-striped">
                     <tr>
-                        <td>Name Song</td>
-                        <td>Name Singer</td>
-                        <td>Name Type</td>
+                        <th>Name Song</th>
+                        <th>Name Singer</th>
+                        <th>Name Type</th>
                     </tr>
                     <tr>
                         <td>
-                            <label>Name of the song</label>
                             <input type="text" name="nameSong" placeholder="Name of the song">
                         </td>
                         <td>
-                            <label>Name of the singer</label>
                             <select name="singerId">--%>
-                                <c:forEach items="${playlist}" var="playlist" varStatus="stt">
-                                    <option value="${stt.count}">${playlist.getSinger().getSingerName()}</option>
+                                <c:forEach items="${singerList}" var="singerList" varStatus="stt">
+                                    <option value="${singerList.singerId}">${singerList.singerName}</option>
                                 </c:forEach>
                             </select>
                         </td>
@@ -141,10 +139,9 @@
 <%--                            </select>--%>
 <%--                        </td>--%>
                         <td>
-                            <label>Type of the song</label>
                             <select name="typeId">--%>
-                                <c:forEach items="${playlist}" var="playlist" varStatus="stt">
-                                    <option value="${stt.count}">${playlist.getTypeSong().getTypeName()}</option>
+                                <c:forEach items="${typeSongList}" var="typeSongList" varStatus="stt">
+                                    <option value="${typeSongList.typeId}">${typeSongList.typeName}</option>
                                 </c:forEach>
                             </select>
                         </td>

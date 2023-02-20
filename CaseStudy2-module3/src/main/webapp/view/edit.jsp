@@ -24,21 +24,17 @@
     </div>
     <div class="form-group">
         <label for="singerId">Tên ca sĩ</label>
-<%--        <input type="text"--%>
-<%--               class="form-control" name="singerId" id="singerId" value="${playlist.singer.singerName}">--%>
         <select name="singerId" id="singerId">
-            <c:forEach items="${playlist2}" var="playlist" varStatus="stt">
-                <option value="${stt.count}">${playlist.singer.singerName}</option>
+            <c:forEach items="${singerList}" var="singerList" varStatus="stt">
+                <option value="${singerList.singerId}">${singerList.singerName}</option>
             </c:forEach>
         </select>
     </div>
     <div class="form-group">
         <label for="typeId">Thể loại bài hát</label>
-<%--        <input type="text"--%>
-<%--               class="form-control" name="typeId" id="typeId" value="${playlist.typeSong.typeName}">--%>
         <select name="typeId" id="typeId">
-            <c:forEach items="${playlist2}" var="playlist" varStatus="stt">
-            <option value="${stt.count}">${playlist.typeSong.typeName}</option>
+            <c:forEach items="${typeSongList}" var="typeSongList" varStatus="stt">
+            <option value="${typeSongList.typeId}">${typeSongList.typeName}</option>
             </c:forEach>
         </select>
     </div>

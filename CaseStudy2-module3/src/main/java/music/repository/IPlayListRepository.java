@@ -1,6 +1,8 @@
 package music.repository;
 
 import music.model.PlayList;
+import music.model.Singer;
+import music.model.TypeSong;
 
 import java.util.List;
 
@@ -14,4 +16,6 @@ public interface IPlayListRepository {
     boolean update(PlayList playList);
 
     PlayList findPlaylistById(int id);
+    List<Singer> showSingerList();
+    List<TypeSong> showTypeSongList();
 }

@@ -19,7 +19,9 @@
             font-size: 15px;
             line-height: 1.7;
             color: white;
-            background-color: #555566;
+            background-image: url("https://img.freepik.com/free-vector/music-vinyl-record-label-with-sound-notes_1017-33905.jpg");
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
             overflow-x: hidden;
         }
         a {

@@ -1,6 +1,8 @@
 package music.service.impl;
 
 import music.model.PlayList;
+import music.model.Singer;
+import music.model.TypeSong;
 import music.repository.IPlayListRepository;
 import music.repository.impl.PlayListRepository;
 import music.service.IPlayListService;
@@ -32,6 +34,16 @@ public class PlayListService implements IPlayListService {
     @Override
     public PlayList findPlaylistById(int id) {
         return iPlayListRepository.findPlaylistById(id);
+    }
+
+    @Override
+    public List<Singer> showSingerList() {
+        return iPlayListRepository.showSingerList();
+    }
+
+    @Override
+    public List<TypeSong> showTypeSongList() {
+        return iPlayListRepository.showTypeSongList();
     }
 
 }
