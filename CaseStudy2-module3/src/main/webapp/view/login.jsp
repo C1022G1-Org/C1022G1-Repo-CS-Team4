@@ -323,11 +323,11 @@
                                         <div class="section text-center">
                                             <h4 class="mb-4 pb-3">Log In</h4>
                                             <div class="form-group">
-                                                <input type="email" name="email" class="form-style" placeholder="Your Email" autocomplete="off">
+                                                <input type="email" name="email" class="form-style" placeholder="Your Email" autocomplete="off" required>
                                                 <i class="input-icon uil uil-at"></i>
                                             </div>
                                             <div class="form-group mt-2">
-                                                <input type="password" name="password" class="form-style" placeholder="Your Password" autocomplete="off">
+                                                <input type="password" name="password" class="form-style" placeholder="Your Password" autocomplete="off" required>
                                                 <i class="input-icon uil uil-lock-alt"></i>
                                             </div>
                                             <button type="submit" class="btn mt-4">submit</button>
@@ -343,15 +343,15 @@
                                         <div class="section text-center">
                                             <h4 class="mb-4 pb-3">Register</h4>
                                             <div class="form-group">
-                                                <input type="text" name="name" class="form-style" placeholder="Your Full Name" autocomplete="off">
+                                                <input type="text" name="name" class="form-style" placeholder="Your Full Name" autocomplete="off" required>
                                                 <i class="input-icon uil uil-user"></i>
                                             </div>
                                             <div class="form-group mt-2">
-                                                <input type="email" name="email" class="form-style" placeholder="Your Email"  autocomplete="off">
+                                                <input type="email" name="email" class="form-style" placeholder="Your Email"  autocomplete="off" required>
                                                 <i class="input-icon uil uil-at"></i>
                                             </div>
                                             <div class="form-group mt-2">
-                                                <input type="password" name="password" class="form-style" placeholder="Your Password"  autocomplete="off">
+                                                <input type="password" name="password" class="form-style" placeholder="Your Password"  autocomplete="off" required>
                                                 <i class="input-icon uil uil-lock-alt"></i>
                                             </div>
                                             <button type="submit" class="btn mt-4">submit</button>

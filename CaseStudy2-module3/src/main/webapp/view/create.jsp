@@ -41,6 +41,8 @@
 </head>
 
 <body>
+
+<%--header--%>
 <nav class="navbar navbar-expand-lg bg-dark fixed-top">
     <div class="container-fluid">
         <a class="navbar-brand ms-4" href="/view/home.jsp">
@@ -105,6 +107,7 @@
         </div>
     </div>
 </nav>
+
 <div class="row m-0">
     <div class="row ms-0 me-0 p-0" style="margin-top: 56px">
         <div class="col-4 py-3" style="background-color: black;height: 100%"><img
@@ -113,6 +116,12 @@
         </div>
 
         <div class="col-8 ">
+            <center>
+                <h1 class="py-3">Create new song</h1>
+                <h3>
+                    <a href="/playlist" class="text-dark float-start pe-2">Back to playlist</a>
+                </h3>
+            </center>
             <form method="post">
                 <table class="table table-dark table-striped">
                     <tr>
@@ -122,31 +131,24 @@
                     </tr>
                     <tr>
                         <td>
-                            <input type="text" name="nameSong" placeholder="Name of the song">
+                            <input class="ps-2" style="width: 100%; height: 35px;border-radius: .375rem;" type="text" name="nameSong" placeholder="Name of the song">
                         </td>
                         <td>
-                            <select name="singerId">--%>
+                            <select style="width: 100%; height: 35px;border-radius: .375rem;" name="singerId">--%>
                                 <c:forEach items="${singerList}" var="singerList" varStatus="stt">
                                     <option value="${singerList.singerId}">${singerList.singerName}</option>
                                 </c:forEach>
                             </select>
                         </td>
-<%--                        <td>--%>
-<%--                            <select name="singerId">--%>
-<%--                                <c:forEach items="${playlist}" var="playlist">--%>
-<%--                                    <option value="${playlist.getSinger().getSingerId()}">${playlist.getSinger().getSingerName()}</option>--%>
-<%--                                </c:forEach>--%>
-<%--                            </select>--%>
-<%--                        </td>--%>
                         <td>
-                            <select name="typeId">--%>
+                            <select style="width: 100%; height: 35px;border-radius: .375rem;" name="typeId">--%>
                                 <c:forEach items="${typeSongList}" var="typeSongList" varStatus="stt">
                                     <option value="${typeSongList.typeId}">${typeSongList.typeName}</option>
                                 </c:forEach>
                             </select>
                         </td>
                     </tr>
-                    <section style="width: 5rem;height: 40px;border-radius: 150px;" class="bg-dark mt-3 mb-2 me-3 float-end d-flex align-items-center justify-content-center">
+                    <section style="width: 5rem;height: 40px;border-radius: 150px;" class="bg-dark mt-0 mb-2 me-3 float-end d-flex align-items-center justify-content-center">
                         <div class="circle long">
                             <input style="border: none" class="bg-dark text-white" type="submit" value="Add">
                         </div>
@@ -160,6 +162,102 @@
 
 </div>
 </div>
+
+<%--footer--%>
+<section class="footer bg-dark text-light">
+    <div class="container">
+        <div class="row" data-aos="fade-right">
+            <div class="col-lg-3 py-4 py-md-5">
+                <div class="d-flex align-items-center">
+                    <h4 class="">Group 4</h4>
+                </div>
+                <p class="py-3 para-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque,
+                    deserunt doloremque doloribus et facere, illo ipsam iste molestiae, necessitatibus nobis nulla
+                    officia perspiciatis qui ratione similique suscipit vel voluptatem!</p>
+            </div> <!-- end of col -->
+
+            <div class="col-lg-3 py-4 py-md-5">
+                <div>
+                    <h4 class="py-2">Company</h4>
+                    <div class="d-flex align-items-center py-2">
+                        <i class="ti-angle-right"></i>
+                        <a href="#about"><p class="ms-3">Introduce</p></a>
+                    </div>
+                    <div class="d-flex align-items-center py-2">
+                        <i class="ti-angle-right"></i>
+                        <a href="#"><p class="ms-3">Job</p></a>
+                    </div>
+                    <div class="d-flex align-items-center py-2">
+                        <i class="ti-angle-right"></i>
+                        <a href="#"><p class="ms-3">For the Record</p></a>
+                    </div>
+                    <div class="d-flex align-items-center py-2">
+                        <i class="ti-angle-right"></i>
+                        <a href="#"><p class="ms-3">Contact</p></a>
+                    </div>
+                </div>
+            </div> <!-- end of col -->
+
+            <div class="col-lg-3 py-4 py-md-5">
+                <div>
+                    <h4 class="py-2">Community</h4>
+                    <div class="d-flex align-items-center py-2">
+                        <i class="ti-angle-right"></i>
+                        <a href="#"><p class="ms-3">For Artists</p></a>
+
+                    </div>
+                    <div class="d-flex align-items-center py-2">
+                        <i class="ti-angle-right"></i>
+                        <a href="#"><p class="ms-3">Developers</p></a>
+                    </div>
+                    <div class="d-flex align-items-center py-2">
+                        <i class="ti-angle-right"></i>
+                        <a href="#"><p class="ms-3">
+                            Advertisement</p></a>
+                    </div>
+                    <div class="d-flex align-items-center py-2">
+                        <i class="ti-angle-right"></i>
+                        <a href="#"><p class="ms-3">
+                            Investors</p></a>
+                    </div>
+                    <div class="d-flex align-items-center py-2">
+                        <i class="ti-angle-right"></i>
+                        <a href="#"><p class="ms-3">
+                            Supplier</p></a>
+                    </div>
+                </div>
+            </div> <!-- end of col -->
+
+            <div class="col-lg-3 py-4 py-md-5">
+                <div class="d-flex align-items-center">
+                    <h4>Newsletter</h4>
+                </div>
+                <p class="py-3 para-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit,
+                    voluptatum?</p>
+                <div class="d-flex align-items-center">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control p-2" placeholder="Enter Email"
+                               aria-label="Recipient's email">
+                    </div>
+                </div>
+            </div> <!-- end of col -->
+        </div> <!-- end of row -->
+    </div> <!-- end of container -->
+</section> <!-- end of footer -->
+
+<div class="bg-dark text-light">
+    <div class="container d-flex justify-content-between">
+        <div><p class="my-0">&copy; Copyright by Group 4</p><br>
+            <p>Distributed by: <a href="#">C1022G1</a></p></div>
+        <div>
+            <i class="ti-youtube pe-2"></i>
+            <i class="ti-facebook pe-2"></i>
+            <i class="ti-instagram pe-2"></i>
+            <i class="ti-soundcloud pe-2"></i>
+        </div>
+    </div> <!-- end of container -->
+</div> <!-- end of bottom -->
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
