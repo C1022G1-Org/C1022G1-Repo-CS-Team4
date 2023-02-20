@@ -80,10 +80,22 @@
                     <li class="nav-item me-3">
                         <div class="column-menu"></div>
                     </li>
-                    <li class="nav-item mx-2">
-                        <i class="ti-user"></i><a class="nav-link active login text-secondary text-nav"
-                                                  aria-current="page" href="#">Login</a>
-                    </li>
+                    <c:if test="${sessionScope.nameAccount != null}">
+                        <li>
+                            <a style="position: relative; right: 35px; top: 8px" href="#">${sessionScope.nameAccount.name}</a>
+                        </li>
+                        <li class="nav-item mx-2"><a href="/user?action=logout"
+                                                     class="nav-link active login text-secondary text-nav"
+                                                     aria-current="page"> <i style="position: absolute; right: 190px; width: 30px; padding-top: 5px; color: white" class="ti-shift-right"></i>Logout</a>
+                        </li>
+                    </c:if>
+                    <c:if test="${sessionScope.nameAccount == null}">
+                        <li class="nav-item mx-2">
+                            <i class="ti-user"></i><a href="/view/login.jsp"
+                                                      class="nav-link active login text-secondary text-nav"
+                                                      aria-current="page">Login</a>
+                        </li>
+                    </c:if>
                     <li class="nav-item me-5">
                         <a class="nav-link active register rounded-pill text-black bg-white" aria-current="page"
                            href="#">Register</a>
@@ -115,7 +127,11 @@
                         </td>
                         <td>
                             <label>Name of the singer</label>
-                            <input type="number" name="singerId">
+                            <select name="singerId">--%>
+                                <c:forEach items="${playlist}" var="playlist" varStatus="stt">
+                                    <option value="${stt.count}">${playlist.getSinger().getSingerName()}</option>
+                                </c:forEach>
+                            </select>
                         </td>
 <%--                        <td>--%>
 <%--                            <select name="singerId">--%>
@@ -126,7 +142,11 @@
 <%--                        </td>--%>
                         <td>
                             <label>Type of the song</label>
-                            <input type="number" name="typeId">
+                            <select name="typeId">--%>
+                                <c:forEach items="${playlist}" var="playlist" varStatus="stt">
+                                    <option value="${stt.count}">${playlist.getTypeSong().getTypeName()}</option>
+                                </c:forEach>
+                            </select>
                         </td>
                     </tr>
                     <section style="width: 5rem;height: 40px;border-radius: 150px;" class="bg-dark mt-3 mb-2 me-3 float-end d-flex align-items-center justify-content-center">

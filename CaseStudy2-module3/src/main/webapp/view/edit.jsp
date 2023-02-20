@@ -15,51 +15,7 @@
     <p>${mess}</p>
 </center>
 <div align="center">
-    <form  method="post">
-<%--        <table border="1" cellpadding="5">--%>
-<%--            <caption>--%>
-<%--                <h2>Edit Playlist</h2>--%>
-<%--            </caption>--%>
-<%--            <tr>--%>
-<%--                <td>--%>
-<%--                    <input type="hidden" name="id" >--%>
-<%--                </td>--%>
-<%--            </tr>--%>
-<%--            <tr>--%>
-<%--                <th>Name Song:</th>--%>
-<%--                <td>--%>
-<%--                    <select name="nameSong">--%>
-<%--                        <c:forEach items="${playlist}" var="playlist">--%>
-<%--                            <option name="nameSong" >${playlist.getNameSong()}</option>--%>
-<%--                        </c:forEach>--%>
-<%--                    </select>--%>
-<%--                </td>--%>
-<%--            </tr>--%>
-
-<%--            <tr>--%>
-<%--                <th>Name Singer:</th>--%>
-<%--                <td>--%>
-<%--                    <select name="singerId">--%>
-<%--                        <c:forEach items="${playlist}" var="playlist">--%>
-<%--                            <option name="singerId" value="${playlist.getSinger().getSingerId()}">${playlist.getSinger().getSingerName()}</option>--%>
-<%--                        </c:forEach>--%>
-<%--                    </select>--%>
-<%--                </td>--%>
-<%--            </tr>--%>
-<%--            <tr>--%>
-<%--                <th>Name Type:</th>--%>
-<%--                <td>--%>
-<%--                    <select name="typeId">--%>
-<%--                        <c:forEach items="${playlist}" var="playlist">--%>
-<%--                            <option name="typeId" value="${playlist.getTypeSong().getTypeId()}">${playlist.getTypeSong().getTypeName()}</option>--%>
-<%--                        </c:forEach>--%>
-<%--                    </select>--%>
-<%--                </td>--%>
-<%--            </tr>--%>
-<%--            <tr>--%>
-<%--                <td colspan="2" align="center"><input type="submit" value="Save"/></td>--%>
-<%--            </tr>--%>
-<%--        </table>--%>
+    <form method="post">
     <input type="hidden" name="id" >
     <div class="form-group">
         <label for="nameSong">Tên bài hát</label>
@@ -68,14 +24,22 @@
     </div>
     <div class="form-group">
         <label for="singerId">Tên ca sĩ</label>
+<%--        <input type="text"--%>
+<%--               class="form-control" name="singerId" id="singerId" value="${playlist.singer.singerName}">--%>
         <select name="singerId" id="singerId">
-                <option value="${playlist.singer.singerId}">${playlist.singer.singerName}</option>
+            <c:forEach items="${playlist2}" var="playlist" varStatus="stt">
+                <option value="${stt.count}">${playlist.singer.singerName}</option>
+            </c:forEach>
         </select>
     </div>
     <div class="form-group">
         <label for="typeId">Thể loại bài hát</label>
+<%--        <input type="text"--%>
+<%--               class="form-control" name="typeId" id="typeId" value="${playlist.typeSong.typeName}">--%>
         <select name="typeId" id="typeId">
-            <option value="${playlist.typeSong.typeId}">${playlist.typeSong.typeName}</option>
+            <c:forEach items="${playlist2}" var="playlist" varStatus="stt">
+            <option value="${stt.count}">${playlist.typeSong.typeName}</option>
+            </c:forEach>
         </select>
     </div>
     <input type="submit" class="btn btn-primary" value="Xác nhận">

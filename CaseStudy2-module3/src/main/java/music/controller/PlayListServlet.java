@@ -94,6 +94,7 @@ public class PlayListServlet extends HttpServlet {
             request.getRequestDispatcher("error-404.jsp");
         }else {
             request.setAttribute("playlist", playList);
+            request.setAttribute("playlist2", iPlayListService.findAllPlayList(""));
             try {
                 request.getRequestDispatcher("/view/edit.jsp").forward(request, response);
             } catch (ServletException e) {
