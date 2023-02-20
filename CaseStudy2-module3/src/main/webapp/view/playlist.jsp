@@ -10,6 +10,8 @@
 </head>
 
 <body>
+
+<%--header--%>
 <nav class="navbar navbar-expand-lg bg-dark fixed-top">
     <div class="container-fluid">
         <a class="navbar-brand ms-4" href="/view/home.jsp">
@@ -67,14 +69,14 @@
                     </c:if>
                     <li class="nav-item me-5">
                         <a class="nav-link active register rounded-pill text-black bg-white" aria-current="page"
-                           href="#">Register</a>
+                           href="/view/register.jsp">Register</a>
                     </li>
                 </ul>
             </form>
         </div>
     </div>
 </nav>
-<div class="row m-0" style="height: 100%">
+<div class="row m-0" style="height: 900px">
     <div class="row ms-0 me-0 p-0" style="margin-top: 56px">
         <div class="col-4 py-3" style="background-color: black;height: 100%"><img
                 src="https://i.pinimg.com/564x/5e/60/b7/5e60b70cef4cec25b10f6fee314ec92a.jpg"
@@ -82,6 +84,9 @@
         </div>
 
         <div class="col-8" style="background-color: white">
+            <center>
+                <h1 class="pt-3">Playlist Management</h1>
+            </center>
             <section style="width: 8rem;height: 40px;border-radius: 150px;"
                      class="bg-dark mt-3 mb-2 me-3 float-end d-flex align-items-center justify-content-center">
                 <div class="circle long">
@@ -145,6 +150,102 @@
 
 </div>
 </div>
+
+<%--footer--%>
+<section class="footer bg-dark text-light">
+    <div class="container">
+        <div class="row" data-aos="fade-right">
+            <div class="col-lg-3 py-4 py-md-5">
+                <div class="d-flex align-items-center">
+                    <h4 class="">Group 4</h4>
+                </div>
+                <p class="py-3 para-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque,
+                    deserunt doloremque doloribus et facere, illo ipsam iste molestiae, necessitatibus nobis nulla
+                    officia perspiciatis qui ratione similique suscipit vel voluptatem!</p>
+            </div> <!-- end of col -->
+
+            <div class="col-lg-3 py-4 py-md-5">
+                <div>
+                    <h4 class="py-2">Company</h4>
+                    <div class="d-flex align-items-center py-2">
+                        <i class="ti-angle-right"></i>
+                        <a href="#about"><p class="ms-3">Introduce</p></a>
+                    </div>
+                    <div class="d-flex align-items-center py-2">
+                        <i class="ti-angle-right"></i>
+                        <a href="#"><p class="ms-3">Job</p></a>
+                    </div>
+                    <div class="d-flex align-items-center py-2">
+                        <i class="ti-angle-right"></i>
+                        <a href="#"><p class="ms-3">For the Record</p></a>
+                    </div>
+                    <div class="d-flex align-items-center py-2">
+                        <i class="ti-angle-right"></i>
+                        <a href="#"><p class="ms-3">Contact</p></a>
+                    </div>
+                </div>
+            </div> <!-- end of col -->
+
+            <div class="col-lg-3 py-4 py-md-5">
+                <div>
+                    <h4 class="py-2">Community</h4>
+                    <div class="d-flex align-items-center py-2">
+                        <i class="ti-angle-right"></i>
+                        <a href="#"><p class="ms-3">For Artists</p></a>
+
+                    </div>
+                    <div class="d-flex align-items-center py-2">
+                        <i class="ti-angle-right"></i>
+                        <a href="#"><p class="ms-3">Developers</p></a>
+                    </div>
+                    <div class="d-flex align-items-center py-2">
+                        <i class="ti-angle-right"></i>
+                        <a href="#"><p class="ms-3">
+                            Advertisement</p></a>
+                    </div>
+                    <div class="d-flex align-items-center py-2">
+                        <i class="ti-angle-right"></i>
+                        <a href="#"><p class="ms-3">
+                            Investors</p></a>
+                    </div>
+                    <div class="d-flex align-items-center py-2">
+                        <i class="ti-angle-right"></i>
+                        <a href="#"><p class="ms-3">
+                            Supplier</p></a>
+                    </div>
+                </div>
+            </div> <!-- end of col -->
+
+            <div class="col-lg-3 py-4 py-md-5">
+                <div class="d-flex align-items-center">
+                    <h4>Newsletter</h4>
+                </div>
+                <p class="py-3 para-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit,
+                    voluptatum?</p>
+                <div class="d-flex align-items-center">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control p-2" placeholder="Enter Email"
+                               aria-label="Recipient's email">
+                    </div>
+                </div>
+            </div> <!-- end of col -->
+        </div> <!-- end of row -->
+    </div> <!-- end of container -->
+</section> <!-- end of footer -->
+
+<div class="bg-dark text-light">
+    <div class="container d-flex justify-content-between">
+        <div><p class="my-0">&copy; Copyright by Group 4</p><br>
+            <p>Distributed by: <a href="#">C1022G1</a></p></div>
+        <div>
+            <i class="ti-youtube pe-2"></i>
+            <i class="ti-facebook pe-2"></i>
+            <i class="ti-instagram pe-2"></i>
+            <i class="ti-soundcloud pe-2"></i>
+        </div>
+    </div> <!-- end of container -->
+</div> <!-- end of bottom -->
+
 <script>
     function infoDelete(playListId, NameSong) {
         document.getElementById("deleteId").value = playListId;
