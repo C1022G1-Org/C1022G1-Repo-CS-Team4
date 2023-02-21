@@ -74,22 +74,10 @@ public class PlayListServlet extends HttpServlet {
         int typeId = Integer.parseInt(request.getParameter("typeId"));
         Singer singer = new Singer(singerId);
         TypeSong typeSong = new TypeSong(typeId);
-        if(playList==null){
-            request.getRequestDispatcher("error-404.jsp");
-        }else {
-            playList.setNameSong(nameSong);
-            playList.setSinger(singer);
-            playList.setTypeSong(typeSong);
-            iPlayListService.update(playList);
-        }
-        boolean flag = iPlayListService.update(playList);
-        String mess = "Sửa thành công";
-        if (flag) {
-            request.setAttribute("mess", mess);
-        } else {
-            mess = "thất bại";
-            request.setAttribute("mess", mess);
-        }
+        playList.setNameSong(nameSong);
+        playList.setSinger(singer);
+        playList.setTypeSong(typeSong);
+        iPlayListService.update(playList);
         try {
             response.sendRedirect("/playlist");
         } catch (IOException e) {
@@ -99,19 +87,15 @@ public class PlayListServlet extends HttpServlet {
     private void showEdit(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
         PlayList playList = iPlayListService.findPlaylistById(id);
-        if (playList == null) {
-            request.getRequestDispatcher("error-404.jsp");
-        }else {
-            request.setAttribute("playlist", playList);
-            request.setAttribute("typeSongList",iPlayListService.showTypeSongList());
-            request.setAttribute("singerList",iPlayListService.showSingerList());
-            try {
-                request.getRequestDispatcher("/view/edit.jsp").forward(request, response);
-            } catch (ServletException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        request.setAttribute("playlist", playList);
+        request.setAttribute("typeSongList",iPlayListService.showTypeSongList());
+        request.setAttribute("singerList",iPlayListService.showSingerList());
+        try {
+            request.getRequestDispatcher("/view/edit.jsp").forward(request, response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -119,7 +103,7 @@ public class PlayListServlet extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         String mess = "Xóa Không thành công";
         boolean check = iPlayListService.deletePlayList(id);
-        if (check) {
+        if (!check) {
             mess = "Xóa Thành công";
         }
         request.setAttribute("mess", mess);
