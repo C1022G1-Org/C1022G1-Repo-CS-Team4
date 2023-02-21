@@ -15,15 +15,15 @@ public class UserServlet extends HttpServlet {
     IUserService iUserService = new UserService();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String action = request.getParameter("action");
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
+        String action = request.getParameter("action");
         if(action==null){
             action = "";
         }
         switch (action){
             case "register":
-                showCreate(request,response);
+                showRegister(request,response);
                 break;
             case "logout":
                 logout(request,response);
@@ -35,15 +35,15 @@ public class UserServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String action = request.getParameter("action");
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
+        String action = request.getParameter("action");
         if(action==null){
             action = "";
         }
         switch (action){
             case "register":
-                create(request,response);
+                register(request,response);
                 break;
             case "login":
                 login(request,response);
@@ -52,19 +52,32 @@ public class UserServlet extends HttpServlet {
                 break;
         }
     }
-    private void create(HttpServletRequest request, HttpServletResponse response){
+    private void register(HttpServletRequest request, HttpServletResponse response){
         String name = request.getParameter("name");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-        User user = new User(name,email,password);
-        iUserService.register(user);
-        try {
-            response.sendRedirect("/view/login.jsp");
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        User user = iUserService.checkEmail(email);
+        String error = "account already existed.";
+        if(user==null){
+            user = new User(name,email,password);
+            iUserService.register(user);
+            try {
+                response.sendRedirect("/view/login.jsp");
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }else {
+            request.setAttribute("error",error);
+            try {
+                request.getRequestDispatcher("/view/register.jsp").forward(request,response);
+            } catch (ServletException e) {
+                throw new RuntimeException(e);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
-    private void showCreate(HttpServletRequest request, HttpServletResponse response){
+    private void showRegister(HttpServletRequest request, HttpServletResponse response){
         try {
             request.getRequestDispatcher("/view/register.jsp").forward(request,response);
         } catch (ServletException e) {

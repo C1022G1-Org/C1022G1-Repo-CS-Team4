@@ -22,6 +22,7 @@ public class UserRepository implements IUserRepository {
         }
     }
 
+
     @Override
     public User login(String email, String password) {
         PreparedStatement preparedStatement = null;
@@ -36,6 +37,27 @@ public class UserRepository implements IUserRepository {
                 resultSet.getString(3),
                 resultSet.getString(4)
                );
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return null;
+    }
+
+    @Override
+    public User checkEmail(String email) {
+        try {
+            PreparedStatement preparedStatement = BaseRepository.getConnection().prepareStatement("select * from user where email =?");
+            preparedStatement.setString(1,email);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            User user;
+            while (resultSet.next()){
+                user = new User();
+                user.setId(resultSet.getInt("id"));
+                user.setName(resultSet.getString("name"));
+                user.setEmail(resultSet.getString("email"));
+                user.setPassword(resultSet.getString("password"));
+                return user;
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);

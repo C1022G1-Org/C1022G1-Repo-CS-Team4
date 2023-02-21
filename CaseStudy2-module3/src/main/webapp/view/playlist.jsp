@@ -69,7 +69,7 @@
                     </c:if>
                     <li class="nav-item me-5">
                         <a class="nav-link active register rounded-pill text-black bg-white" aria-current="page"
-                           href="/view/register.jsp">Register</a>
+                           href="/user?action=register">Register</a>
                     </li>
                 </ul>
             </form>

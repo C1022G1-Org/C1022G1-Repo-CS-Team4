@@ -16,4 +16,9 @@ public class UserService implements IUserService {
     public User login(String email, String password) {
        return iUserRepository.login(email,password);
     }
+
+    @Override
+    public User checkEmail(String email) {
+        return iUserRepository.checkEmail(email);
+    }
 }

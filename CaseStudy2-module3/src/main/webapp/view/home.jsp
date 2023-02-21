@@ -47,7 +47,7 @@
             <form class="d-flex" role="search">
                 <input class="form-control me-5 rounded-pill" style="padding-left: 40px" type="search"
                        placeholder="Search Music"
-                       aria-label="Search"><i class="ti-search"></i>
+                       aria-label="Search" name="search"><i class="ti-search"></i>
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item me-4">
                         <a class="nav-link active text-secondary help" aria-current="page" href="#">Contact</a>
@@ -73,7 +73,7 @@
                     </c:if>
                     <li class="nav-item me-5">
                         <a class="nav-link active register rounded-pill text-black bg-white" aria-current="page"
-                           href="/view/register.jsp">Register</a>
+                           href="/user?action=register">Register</a>
                     </li>
                 </ul>
             </form>

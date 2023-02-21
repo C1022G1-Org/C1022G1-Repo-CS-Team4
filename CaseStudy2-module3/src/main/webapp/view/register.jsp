@@ -329,6 +329,7 @@
                                             <div class="form-group mt-2 d-flex align-items-center text-danger">
                                                 <input type="email" name="email" class="form-style" placeholder="Your Email"  autocomplete="off" required>
                                                 <span class="ms-2" style="padding-top: 8px;"> *</span>
+                                                <span>${error}</span>
                                             </div>
                                             <div class="form-group mt-2 d-flex align-items-center text-danger">
                                                 <input type="password" name="password" class="form-style" placeholder="Your Password"  autocomplete="off" required>

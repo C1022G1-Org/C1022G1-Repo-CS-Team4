@@ -342,17 +342,17 @@
                                     <form action="/user?action=register" method="post">
                                         <div class="section text-center">
                                             <h4 class="mb-4 pb-3">Register</h4>
-                                            <div class="form-group">
+                                            <div class="form-group d-flex align-items-center text-danger">
                                                 <input type="text" name="name" class="form-style" placeholder="Your Full Name" autocomplete="off" required>
-                                                <i class="input-icon uil uil-user"></i>
+                                                <span class="ms-2" style="padding-top: 8px;"> *</span>
                                             </div>
-                                            <div class="form-group mt-2">
+                                            <div class="form-group mt-2 d-flex align-items-center text-danger">
                                                 <input type="email" name="email" class="form-style" placeholder="Your Email"  autocomplete="off" required>
-                                                <i class="input-icon uil uil-at"></i>
+                                                <span class="ms-2" style="padding-top: 8px;"> *</span>
                                             </div>
-                                            <div class="form-group mt-2">
+                                            <div class="form-group mt-2 d-flex align-items-center text-danger">
                                                 <input type="password" name="password" class="form-style" placeholder="Your Password"  autocomplete="off" required>
-                                                <i class="input-icon uil uil-lock-alt"></i>
+                                                <span class="ms-2" style="padding-top: 8px;"> *</span>
                                             </div>
                                             <button type="submit" class="btn mt-4">submit</button>
                                         </div>
