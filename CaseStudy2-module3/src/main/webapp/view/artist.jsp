@@ -14,6 +14,8 @@
           integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="\themify-icons\themify-icons.css">
     <link rel="stylesheet" href="\style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js">
     <style>
         .background-playlist {
             color: white;
@@ -129,6 +131,113 @@
 
         .trending-music-img {
             border-radius: 50%;
+        }
+
+        @import url(http://fonts.googleapis.com/css?family=Anaheim);
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            display: table;
+            margin: 5% auto 0;
+            text-transform: uppercase;
+            font-family: 'Times Roman', sans-serif;
+            font-size: 3em;
+            font-weight: 400;
+            color: #fff;
+            text-shadow: 0 1px white, 0 1px black
+        }
+
+        .container1 {
+            margin: 4% auto;
+            width: 210px;
+            height: 140px;
+            position: relative;
+            perspective: 1000px
+        }
+
+        #carousel {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            transform-style: preserve-3d;
+            animation: rotation 20s infinite linear
+        }
+
+        #carousel:hover {
+            animation-play-state: paused
+        }
+
+        #carousel figure {
+            display: block;
+            position: absolute;
+            width: 90%;
+            height: 90%;
+            left: 10px;
+            top: 10px;
+            background: black;
+            overflow: hidden;
+            border: solid 3px black
+        }
+
+        #carousel figure:nth-child(1) {
+            transform: rotateY(0deg) translateZ(288px)
+        }
+
+        #carousel figure:nth-child(2) {
+            transform: rotateY(40deg) translateZ(288px)
+        }
+
+        #carousel figure:nth-child(3) {
+            transform: rotateY(80deg) translateZ(288px)
+        }
+
+        #carousel figure:nth-child(4) {
+            transform: rotateY(120deg) translateZ(288px)
+        }
+
+        #carousel figure:nth-child(5) {
+            transform: rotateY(160deg) translateZ(288px)
+        }
+
+        #carousel figure:nth-child(6) {
+            transform: rotateY(200deg) translateZ(288px)
+        }
+
+        #carousel figure:nth-child(7) {
+            transform: rotateY(240deg) translateZ(288px)
+        }
+
+        #carousel figure:nth-child(8) {
+            transform: rotateY(280deg) translateZ(288px)
+        }
+
+        #carousel figure:nth-child(9) {
+            transform: rotateY(320deg) translateZ(288px)
+        }
+
+
+        #carousel figure img {
+            width: 100%;
+            height: 150px;
+        }
+
+        img:hover {
+            -webkit-filter: grayscale(0);
+            transform: scale(1.1, 1.1)
+        }
+
+        @keyframes rotation {
+            from {
+                transform: rotateY(0deg)
+            }
+
+            to {
+                transform: rotateY(360deg)
+            }
         }
     </style>
 </head>
@@ -344,35 +453,37 @@
         </div>
 
         <%--gallery--%>
-        <div class="row d-flex align-items-center bg-secondary m-0 " style="height: 700px">
-            <div class="col-6">
-                <div class="row">
-                    <div class="col-6 d-flex justify-content-center">
-                        <img src="https://i.scdn.co/image/ab6761610000e5eb5555bf6bc246d912bca3c0f0"
-                             style="box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);" width="70%"
-                             height="240px" alt="">
-                    </div>
-                    <div class="col-6 d-flex justify-content-center">
-                        <img src="https://photo-resize-zmp3.zmdcdn.me/w360_r1x1_jpeg/avatars/9/e/6/1/9e614e0267968c01457e2b692e2e7272.jpg"
-                             style="box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);" width="70%" height="240px" alt="">
-                    </div>
-                </div>
-                <div class="row mt-5">
-                    <div class="col-6 d-flex justify-content-center">
-                        <img src="https://i.scdn.co/image/ab6761610000e5eb916d46fa6ab17246f55a00f7"
-                             style="box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);" width="70%" height="240px" alt="">
-                    </div>
-                    <div class="col-6 d-flex justify-content-center">
-                        <img src="https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_jpeg/avatars/b/a/d/2/bad27197c6774fc04c039c040ed8813c.jpg"
-                             style="box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);" width="70%" height="240px" alt="">
-                    </div>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="row">
-                    <div class="col-12 d-flex justify-content-center">
-                        <img src="https://galaxylands.com.vn/wp-content/uploads/2022/10/tieu-su-ca-si-mono-17.jpg"
-                             style="box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);" width="80%" alt="">
+        <div class="row gallery" style="background-color: #9a8e7e">
+            <div class="col-12">
+                <h1>Gallery of the artist</h1><br>
+                <div class="container1">
+                    <div id="carousel">
+                        <figure><img
+                                src="https://giadinh.mediacdn.vn/zoom/740_463/2019/photo1573360938028-1573360938385-crop-1573360969605454779141.jpg">
+                        </figure>
+                        <figure><img
+                                src="https://photo-cms-tpo.epicdn.me/w890/Uploaded/2023/dbyxqdrsxr/2019_09_04/Noo_03_BHCT.jpg">
+                        </figure>
+                        <figure><img src="https://moscowsauna.vn/wp-content/uploads/2021/06/tieu-su-quan-a-p.jpg">
+                        </figure>
+                        <figure><img
+                                src="https://vcdn1-giaitri.vnecdn.net/2021/11/24/amee-1637772349-7501-1637772646.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=F2cEes2BB9PoimbKhURj2Q">
+                        </figure>
+                        <figure><img
+                                src="https://afamilycdn.com/150157425591193600/2022/12/14/thumb-5422-1670987053094-1670987053171791696448.jpg">
+                        </figure>
+                        <figure><img
+                                src="https://cdn.baogiaothong.vn/upload/images/2021-1/article_img/2021-02-11/img-bgt-2021-avatar-den-1613039093-width1280height852.jpg">
+                        </figure>
+                        <figure><img
+                                src="https://kenh14cdn.com/thumb_w/640/pr/2022/88d6df2ffac0359e6cd14120ae15-54da-44b7-a61a-add5d476e088-1647605092674635163600-0-0-500-800-crop-1647605102090-63783227154079.jpg">
+                        </figure>
+                        <figure><img
+                                src="https://media-cdn-v2.laodong.vn/storage/newsportal/2022/1/15/995343/271257206_4488128067.jpg">
+                        </figure>
+                        <figure><img
+                                src="https://image.phunuonline.com.vn/fckeditor/upload/2022/20221122/images/ca-si-myra-tran-co-luc-toi-_551669103014.jpg">
+                        </figure>
                     </div>
                 </div>
             </div>
@@ -417,19 +528,19 @@
                     <h4 class="py-2">Company</h4>
                     <div class="d-flex align-items-center py-2">
                         <i class="ti-angle-right"></i>
-                        <a href="#about"><p class="ms-3">Introduce</p></a>
+                        <a href="#about"><p class="ms-3 text-white">Introduce</p></a>
                     </div>
                     <div class="d-flex align-items-center py-2">
                         <i class="ti-angle-right"></i>
-                        <a href="#"><p class="ms-3">Job</p></a>
+                        <a href="#"><p class="ms-3 text-white">Job</p></a>
                     </div>
                     <div class="d-flex align-items-center py-2">
                         <i class="ti-angle-right"></i>
-                        <a href="#"><p class="ms-3">For the Record</p></a>
+                        <a href="#"><p class="ms-3 text-white">For the Record</p></a>
                     </div>
                     <div class="d-flex align-items-center py-2">
                         <i class="ti-angle-right"></i>
-                        <a href="#"><p class="ms-3">Contact</p></a>
+                        <a href="#"><p class="ms-3 text-white">Contact</p></a>
                     </div>
                 </div>
             </div> <!-- end of col -->
@@ -439,26 +550,26 @@
                     <h4 class="py-2">Community</h4>
                     <div class="d-flex align-items-center py-2">
                         <i class="ti-angle-right"></i>
-                        <a href="#"><p class="ms-3">For Artists</p></a>
+                        <a href="#"><p class="ms-3 text-white">For Artists</p></a>
 
                     </div>
                     <div class="d-flex align-items-center py-2">
                         <i class="ti-angle-right"></i>
-                        <a href="#"><p class="ms-3">Developers</p></a>
+                        <a href="#"><p class="ms-3 text-white">Developers</p></a>
                     </div>
                     <div class="d-flex align-items-center py-2">
                         <i class="ti-angle-right"></i>
-                        <a href="#"><p class="ms-3">
+                        <a href="#"><p class="ms-3 text-white">
                             Advertisement</p></a>
                     </div>
                     <div class="d-flex align-items-center py-2">
                         <i class="ti-angle-right"></i>
-                        <a href="#"><p class="ms-3">
+                        <a href="#"><p class="ms-3 text-white">
                             Investors</p></a>
                     </div>
                     <div class="d-flex align-items-center py-2">
                         <i class="ti-angle-right"></i>
-                        <a href="#"><p class="ms-3">
+                        <a href="#"><p class="ms-3 text-white">
                             Supplier</p></a>
                     </div>
                 </div>
@@ -471,7 +582,7 @@
                 <p class="py-3 para-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit,
                     voluptatum?</p>
                 <div class="d-flex align-items-center">
-                    <div class="input-group mb-3">
+                    <div class="input-group mb-3 text-white">
                         <input type="text" class="form-control p-2" placeholder="Enter Email"
                                aria-label="Recipient's email">
                     </div>
@@ -485,7 +596,7 @@
 <div class="bg-dark text-light">
     <div class="container d-flex justify-content-between">
         <div><p class="my-0">&copy; Copyright by Group 4</p><br>
-            <p>Distributed by: <a href="#">C1022G1</a></p></div>
+            <p>Distributed by: <a href="#" class="text-white">C1022G1</a></p></div>
         <div>
             <i class="ti-youtube pe-2"></i>
             <i class="ti-facebook pe-2"></i>
@@ -497,4 +608,5 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
 </body>

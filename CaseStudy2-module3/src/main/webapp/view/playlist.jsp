@@ -87,6 +87,7 @@
             <center>
                 <h1 class="pt-3">Playlist Management</h1>
             </center>
+            <h3>${mess}</h3>
             <section style="width: 8rem;height: 40px;border-radius: 150px;"
                      class="bg-dark mt-3 mb-2 me-3 float-end d-flex align-items-center justify-content-center">
                 <div class="circle long">
